@@ -1,0 +1,9 @@
+.questionaire-inst-addr{
+    margin-top: -20px;
+}
+.questionaire-heading{
+    background-image: url('footer-bg.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+}
