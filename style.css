@@ -1,3 +1,8 @@
+.card-header{
+    background-image: url('image/footer-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .questionaire-inst-addr{
     margin-top: -20px;
 }
