@@ -8,19 +8,32 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- bootstrap 4 css  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        @media only screen and (max-width: 700px) {
+            .welcome-image{
+                display: none;
+            }
+        }
+    </style>
 </head>
-<body class="bg-dark">
+<body>
     <div class="container">
         <div class="row pt-5">
-            <div class="col-md-5 mx-auto my-auto">
-                <div class="card ">
-                    <div class="card-header bg-success text-center text-white">
+            <div class="col-md-6 mt-sm-1 mt-md-5 d-sm-none d-md-block  text-center">
+                <h1 class="text-primary">E-Exam Tools</h1>
+                <h2 class="text-info lead"> Here your daily exams tools</h2>
+                <div class="welcome-image">
+                    <img  width="400px" src="{{ asset('backend/dist/img/online-exams.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 mt-sm-1 mt-md-5 pt-sm-1 pt-md-5">
+                <div class="card m-md-5">
+                    <div class="card-header bg-primary text-center text-white">
                         <div class="card-title">
-                            <img width="150px" src="{{ asset('backend/dist/img/rimt.png') }}" alt="rimt logo">
+                            <h5 class="text-center">Sign In</h5>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="text-center">Sign In</h5>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="form-group">
@@ -59,7 +72,7 @@
                                 <label for="remember_token">Remember me</label>
                             </div>
                             <div class="form-group text-center">
-                                <button class="btn btn-success" type="submit"><i class="fa fa-sign-in-alt"></i> Sign In</button>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-sign-in-alt"></i> Sign In</button>
                             </div>
                         </form>
                     </div>
