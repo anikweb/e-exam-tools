@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\GeneralSettingsController;
+use App\Models\GeneralSettings;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +27,5 @@ use Illuminate\Support\Facades\Route;
 // Dashboard
 
 Route::get('/',[BackendController::class,'dashboard'])->name('dashboard')->middleware('auth');
-
+Route::resource('/dashboard/general-settings', GeneralSettingsController::class);
 require __DIR__.'/auth.php';
