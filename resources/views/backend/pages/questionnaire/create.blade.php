@@ -14,7 +14,8 @@
                         <h3 class="card-title">Create Questionnaire</h3>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="{{ route('questionnaire.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -28,30 +29,34 @@
                             <div class="col-md-3 col-6">
                                 <label>Institute Logo </label>
                                 <div class="form-group">
-                                    <input id="institute_logo" type="file" class="d-none" onchange="document.getElementById('logo_preview').src = window.URL.createObjectURL(this.files[0])">
+                                    <input id="institute_logo" name="institute_logo" type="file" class="d-none" onchange="document.getElementById('logo_preview').src = window.URL.createObjectURL(this.files[0])">
                                     <label for="institute_logo" class="btn btn-primary">Choose</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Address</label>
-                                <input type="text" name="institute_name" class="form-control" placeholder="Enter Address">
+                                <label for="institute_address">Address</label>
+                                <input type="text" name="institute_address" class="form-control" placeholder="Enter Address" id="institute_address">
                             </div>
                             <div class="col-md-6">
-                                <label for="subject">Subject</label>
-                                <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
+                                <label for="exam_name">Exam Name</label>
+                                <input type="text" name="exam_name" id="exam_name" class="form-control" placeholder="Enter Name of Exam">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="questionnaire_subject">Subject</label>
+                                <input type="text" name="questionnaire_subject" id="questionnaire_subject" class="form-control" placeholder="Enter Subject">
                             </div>
                             <div class="col-md-6">
                                 <label for="department">Department/Group</label>
                                 <select name="department" id="department" class="form-control">
                                     <option value="">-Select-</option>
-                                    <option value="">Computer</option>
+                                    <option value="computer">Computer</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="semester">Semester/Class</label>
                                 <select name="semester" id="semester" class="form-control">
                                     <option value="">-Select-</option>
-                                    <option value="">1st</option>
+                                    <option value="1st">1st</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -59,28 +64,29 @@
                                 <input type="date" class="form-control" id="date" name="date">
                             </div>
                             <div class="col-md-6">
-                                <label for="time">Starts on</label>
-                                <input type="time" class="form-control" id="time" name="time">
+                                <label for="start_time">Starts on</label>
+                                <input type="time" class="form-control" id="start_time" name="start_time">
                             </div>
                             <div class="col-md-6">
-                                <label for="time">Ends on</label>
-                                <input type="time" class="form-control" id="time" name="time">
+                                <label for="end_time">Ends on</label>
+                                <input type="time" class="form-control" id="end_time" name="end_time">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="quote">Quote</label>
+                                <textarea name="quote" id="quote" rows="3" class="form-control"></textarea>
                             </div>
                             <div class="col-md-6 mt-2 mt-md-3 pt-md-2">
                                 <div class="form-group">
                                     <div class="custom-control custom-switch">
-                                      <input type="checkbox" class="custom-control-input" id="reportSendToStudents">
-                                      <label class="custom-control-label" for="reportSendToStudents">Send exam results via email to Students</label>
+                                        <input type="checkbox" class="custom-control-input" id="sms_student_report" name="sms_student_report" value="2">
+                                        <label class="custom-control-label" for="sms_student_report">Send exam results via sms to Students</label>
                                     </div>
                                     <div class="custom-control custom-switch">
-                                      <input type="checkbox" class="custom-control-input" id="reportSendToGuardians">
-                                      <label class="custom-control-label" for="reportSendToGuardians">Send results via email to Guardians</label>
+                                        <input type="checkbox" class="custom-control-input" id="sms_guardian_report" name="sms_guardian_report" value="2">
+                                        <label class="custom-control-label" for="sms_guardian_report">Send results via sms to Guardians</label>
                                     </div>
-                                  </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="time">Quote</label>
-                                <textarea name="" id=""  rows="3" class="form-control"></textarea>
+                                    <div class="text-info"><i class="fa fa-envelope"></i> Reports will be sent via email by default.</div>
+                                </div>
                             </div>
                             <div class="col-md-12 text-center mt-2">
                                 <button type="submit" class="btn btn-primary"> <i class="fa fa-folder-plus"></i> Create Questionaire Page</button>
