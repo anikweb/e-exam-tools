@@ -20,7 +20,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="institute_name">Institute Name</label>
-                                    <input type="text" name="institute_name" id="institute_name" class="form-control" placeholder="Enter institute name">
+                                    <input type="text" name="institute_name" id="institute_name" class="form-control @error('institute_name') is-invalid @enderror" placeholder="Enter institute name">
+                                    @error('institute_name')
+                                        <div class="text-danger">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-1 col-6">
@@ -35,45 +41,99 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="institute_address">Address</label>
-                                <input type="text" name="institute_address" class="form-control" placeholder="Enter Address" id="institute_address">
+                                <input type="text" name="institute_address" class="form-control @error('institute_address') is-invalid @enderror" placeholder="Enter Address" id="institute_address">
+                                @error('institute_address')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="exam_name">Exam Name</label>
-                                <input type="text" name="exam_name" id="exam_name" class="form-control" placeholder="Enter Name of Exam">
+                                <input type="text" name="exam_name" id="exam_name" class="form-control @error('exam_name') is-invalid @enderror" placeholder="Enter Name of Exam">
+                                @error('exam_name')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="questionnaire_subject">Subject</label>
-                                <input type="text" name="questionnaire_subject" id="questionnaire_subject" class="form-control" placeholder="Enter Subject">
+                                <input type="text" name="questionnaire_subject" id="questionnaire_subject" class="form-control @error('questionnaire_subject') is-invalid @enderror" placeholder="Enter Subject">
+                                @error('questionnaire_subject')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="department">Department/Group</label>
-                                <select name="department" id="department" class="form-control">
+                                <select name="department" id="department" class="form-control @error('department') is-invalid @enderror">
                                     <option value="">-Select-</option>
                                     <option value="computer">Computer</option>
                                 </select>
+                                @error('department')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="semester">Semester/Class</label>
-                                <select name="semester" id="semester" class="form-control">
+                                <select name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror">
                                     <option value="">-Select-</option>
                                     <option value="1st">1st</option>
                                 </select>
+                                @error('semester')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="date">Exam Date</label>
-                                <input type="date" class="form-control" id="date" name="date">
+                                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date">
+                                @error('date')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="start_time">Starts on</label>
-                                <input type="time" class="form-control" id="start_time" name="start_time">
+                                <input type="time" class="form-control @error('start_time') is-invalid @enderror" id="start_time" name="start_time">
+                                @error('start_time')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="end_time">Ends on</label>
-                                <input type="time" class="form-control" id="end_time" name="end_time">
+                                <input type="time" class="form-control @error('end_time') is-invalid @enderror" id="end_time" name="end_time">
+                                @error('end_time')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-12">
                                 <label for="quote">Quote</label>
-                                <textarea name="quote" id="quote" rows="3" class="form-control"></textarea>
+                                <textarea name="quote" id="quote" rows="3" class="form-control @error('quote') is-invalid @enderror"></textarea>
+                                @error('quote')
+                                    <div class="text-danger">
+                                        <i class="fa fa-exclamation-circle"></i>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="col-md-6 mt-2 mt-md-3 pt-md-2">
                                 <div class="form-group">

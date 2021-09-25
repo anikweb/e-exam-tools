@@ -20,16 +20,14 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Institute Name</th>
-                                        <th>Institute Address</th>
                                         <th>Name of Exam</th>
                                         <th>Subject</th>
                                         <th>Department</th>
                                         <th>Semester</th>
                                         <th>Exam Date</th>
-                                        <th>Starts on</th>
-                                        <th>Ends on</th>
+                                        <th>Duration</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th colspan="4" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,18 +35,28 @@
                                         <tr>
                                             <td>{{ $questionnaires->firstItem() +$loop->index  }}</td>
                                             <td>{{ $questionnaire->institute_name }}</td>
-                                            <td>{{ $questionnaire->institute_address }}</td>
                                             <td>{{ $questionnaire->exam_name }}</td>
                                             <td>{{ $questionnaire->questionnaire_subject }}</td>
                                             <td>{{ $questionnaire->department }}</td>
                                             <td>{{ $questionnaire->semester }}</td>
                                             <td>{{ $questionnaire->date }}</td>
-                                            <td>{{ $questionnaire->start_time }}</td>
-                                            <td>{{ $questionnaire->end_time }}</td>
+                                            @php
+                                                $stime = new DateTime($questionnaire->start_time);
+                                                $etime = new DateTime($questionnaire->end_time);
+                                            @endphp
+                                            <td>{{ $stime->format('h:i a').' - '.$etime->format('h:i a') }}</td>
                                             <td><span class="badge badge-info">Not Done</span></td>
                                             <td>
-                                                <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                                <a href="{{ route('questionnaire.edit',$questionnaire->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit info</a>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-info"><i class="fa fa-plus-circle"></i> Insert Question</a>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> </a>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-warning"><i class="fa fa-eye"></i> </a>
                                             </td>
 
                                         </tr>

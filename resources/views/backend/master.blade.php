@@ -145,7 +145,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('questionnaire.index') }}" class="nav-link">
-                                    <i class="fa fa-plus-circle nav-icon"></i>
+                                    <i class="fa fa-book nav-icon"></i>
                                     <p>Questionnaire</p>
                                 </a>
                             </li>

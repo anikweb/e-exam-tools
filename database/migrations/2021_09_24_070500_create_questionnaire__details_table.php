@@ -30,6 +30,7 @@ class CreateQuestionnaireDetailsTable extends Migration
             $table->text('quote');
             $table->tinyInteger('status')->nullable()->default('1')->comment('1=not done, 2=done');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
