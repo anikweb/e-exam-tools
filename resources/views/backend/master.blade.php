@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> @if(Route::is('dashboard')) Dashboard @elseif(Route::is('general-settings.index')) General Settings @endif | {{ generalSettings()->site_title }}</title>
+  <title> @if(Route::is('dashboard')) Dashboard @elseif(Route::is('general-settings.index')) General Settings @elseif(Route::is('questionnaire.create')) Create Questionnaire @elseif(Route::is('questionnaire.index')) Questionnaires @elseif(Route::is('questionnaire.edit')) Edit Questionnaires @endif | {{ generalSettings()->site_title }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -128,8 +128,8 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item @if(Route::is('questionnaire.create')||Route::is('questionnaire.edit')||Route::is('questionnaire.index')||Route::is('questionnaire.show')) menu-open @endif">
+                        <a href="#" class="nav-link @if(Route::is('questionnaire.create')||Route::is('questionnaire.edit')||Route::is('questionnaire.index')||Route::is('questionnaire.show')) active @endif">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                             Questionnaires
@@ -138,15 +138,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('questionnaire.create') }}" class="nav-link">
+                                <a href="{{ route('questionnaire.create') }}" class="nav-link @if(Route::is('questionnaire.create')) active @endif">
                                     <i class="fa fa-plus-circle nav-icon"></i>
                                     <p>Create Questionnaire</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('questionnaire.index') }}" class="nav-link">
+                                <a href="{{ route('questionnaire.index') }}" class="nav-link @if(Route::is('questionnaire.index')||Route::is('questionnaire.edit')) active @endif">
                                     <i class="fa fa-book nav-icon"></i>
-                                    <p>Questionnaire</p>
+                                    <p>Questionnaire List</p>
                                 </a>
                             </li>
                         </ul>

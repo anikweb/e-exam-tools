@@ -80,3 +80,12 @@
         </div>
     </div>
 @endsection
+@section('footer_js')
+    <script>
+        @if (session('success'))
+            toastr['success']("{{ session('success') }}");
+        @elseif(session('error'))
+            toastr['error']("{{ session('error') }}");
+        @endif
+    </script>
+@endsection

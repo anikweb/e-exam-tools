@@ -66,9 +66,13 @@ class QuestionnaireController extends Controller
             // Create Dynamic Folder End
             Image::make($logo)->save($path.$newName,80);
             $questionnaire_details->institute_logo = $newName;
-            $questionnaire_details->save();
+
         }
-        return redirect()->route('questionnaire.index')->with('session','New Question Created. Now, Insert MCQ');
+        if($questionnaire_details->save()){
+            return redirect()->route('questionnaire.index')->with('success','New Question Created. Now, Insert MCQ');
+        }else{
+            return redirect()->route('questionnaire.index')->with('error','Failed');
+        }
     }
 
     /**
@@ -103,7 +107,7 @@ class QuestionnaireController extends Controller
      * @param  \App\Models\Questionnaire  $questionnaire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionnaireDetailRequest $request, $id)
     {
         $questionnaire_details = Questionnaire_Detail::find($id);
         // return $request;
@@ -133,9 +137,14 @@ class QuestionnaireController extends Controller
             // Create Dynamic Folder End
             Image::make($logo)->save($path.$newName,80);
             $questionnaire_details->institute_logo = $newName;
-            $questionnaire_details->save();
         }
-        return back();
+
+        if($questionnaire_details->save()){
+            return back()->with('success','Questionnaire Updated');
+        }else{
+            return back()->with('error','Failed');
+        }
+
     }
 
     /**
